@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+
+    <title>Payment Successful</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .nav {
+            width: 100%;
+            height: 9rem;
+            background-color: orange;
+            color: white;
+            display: flex;
+            box-shadow: 0 .5rem .5rem rgb(117, 33, 0);
+        }
+
+        #fs {
+            margin-top: 1%;
+            margin-left: 1%;
+            margin-bottom: 1%;
+            width: 200px;
+        }
+
+        .list {
+            margin-left: 25%;
+            display: flex;
+            list-style: none;
+        }
+
+        .list li {
+            margin-left: 15%;
+            margin-top: 7%;
+        }
+
+        .list li a {
+            display: flex;
+            font-size: 2rem;
+            font-weight: bold;
+            color: rgb(177, 33, 0);
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .list li a:hover {
+            color: rgb(70, 2, 0);
+        }
+
+        .list li ul {
+            background-color: white;
+            color: rgb(133, 35, 0);
+        }
+
+        .list li ul li {
+            padding-right: 80px;
+        }
+
+        #angle {
+            margin-top: 5%;
+        }
+
+        .info1 {
+            height: 380px;
+            width: 600px;
+            font-size: 150%;
+            margin-left: 300px;
+            margin-top: 14rem;
+            border: 5px solid rgb(150, 53, 9);
+            box-shadow: 0rem .5rem 1rem orange;
+            border-radius: 22px;
+            background-color: rgb(252, 232, 196);
+            color: rgb(8, 22, 37);
+        }
+
+        .suc {
+            width: 100%;
+            height: 31rem;
+            border-radius: 2rem;
+            top: 1rem;
+        }
+
+        .suc-logo {
+            display: flex;
+            width: 9rem;
+            height: 9rem;
+            border-radius: 4.5rem;
+            margin-left: 50px;
+            margin-top: 10px;
+        }
+
+        .suc-logo i {
+            font-size: 8rem;
+            color: green;
+        }
+
+        .suc-logo span {
+            margin-top: 15px;
+            font-size: 35px;
+        }
+
+        #line {
+            color: green;
+        }
+
+        .suc-des {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        #thank {
+            font-size: 3rem;
+        }
+
+        #trans {
+            margin-top: 20px;
+            background-color: orange;
+            font-weight: bolder;
+            font-size: 2rem;
+            color: rgb(8, 22, 37);
+            border: 3px solid orange;
+            margin-left: 100px;
+            margin-right: 100px;
+            border-radius: 10px;
+        }
+
+        #mal {
+            margin-top: 25px;
+            font-size: 2.5rem;
+        }
+
+        .suc-des p {
+            font-size: 1.7rem;
+        }
+
+        .suc-des span {
+            color: green;
+        }
+
+        .ibutton {
+            background-color: rgb(8, 22, 37);
+            color: orange;
+            border-radius: 1rem;
+            width: 18rem;
+            height: 5rem;
+            margin-top: 4rem;
+            margin-left: 50rem;
+            padding: 1rem 0rem;
+            outline: none;
+            border: .1rem solid rgb(41, 39, 39);
+            transition: .5s;
+        }
+
+        .ibutton a {
+            text-decoration: none;
+            color: orange;
+            font-size: 1.8rem;
+        }
+
+        .ibutton:hover {
+            background-color: orange;
+            color: rgb(8, 22, 37);
+            border: .1rem solid rgb(240, 37, 10);
+        }
+
+        .ibutton a:hover {
+            color: rgb(8, 22, 37);
+        }
+
+
+        .footer {
+            margin-top: 60px;
+            display: flex;
+            width: 100%;
+            height: 270px;
+            background-color: rgb(8, 22, 37);
+        }
+
+        .right {
+            display: flex;
+            width: 30%;
+            font-size: 15px;
+        }
+
+        .f2 {
+            margin: 30px 20px;
+            width: 400px;
+            height: 250px;
+            color: white;
+            line-height: 25px;
+            font-size: 16px;
+        }
+
+        .f2 p {
+            margin-top: 10px;
+            font-size: 20px;
+            text-shadow: 1px 1px 3px orange;
+            color: orange;
+            font-weight: bold;
+        }
+
+        .left {
+            width: 70%;
+            height: 300px;
+            display: flex;
+            padding: 0px 50px;
+            font-size: 17px;
+        }
+
+        .f1 {
+            margin: 30px 30px;
+            width: 150px;
+            height: 250px;
+        }
+
+        .f1 ul {
+            list-style: none;
+        }
+
+        .f1 ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .f1 ul li a:hover {
+            color: rgb(99, 205, 247);
+        }
+
+        .f1 p {
+            font-size: 18px;
+            color: orange;
+            font-weight: bold;
+            line-height: 30px;
+        }
+
+        .copy {
+            width: 100%;
+            height: 50px;
+            padding-top: 10px;
+            border-top: 1px solid grey;
+            font-size: 17px;
+            color: orange;
+            background-color: rgb(8, 22, 37);
+            text-align: center;
+            padding-left: 100px;
+        }
+
+        datalist option {
+            background-color: ivory;
+            font-size: 50px;
+        }
+    </style>
+
+    <script>
+        function myFunction() {
+
+            var email = localStorage.getItem("email");
+            document.getElementById("mail").innerHTML = email;
+
+            var mobile = localStorage.getItem("mobile");
+            var name = localStorage.getItem("name");
+            var amount = localStorage.getItem("amount");
+
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "darshitjadvani123@gmail.com",
+                Password: "jaifosemfuaudsxp",
+                To: email,
+                From: "darshitjadvani123@gmail.com",
+                Subject: "Donation Of ₹" + amount + " is Successful @ CARE India.",
+                Body: "<center><br><h1>Thank You For Donating ₹" + amount + "/-</h1></center> <br> <h2>Donor's Name : " + name + "</h2><h4>Email I'd : " + email + "<h4>Mobile No. : " + mobile + "</h4> <br> <h4> Transcation ID : 1002959930548 </h4>  <br> <h4>Regards,</h4><h4> CARE India Charitable Trust</h4><br> <br> <h2> Thank You For Your Supportting Us!</h2>"
+            });
+
+        }
+    </script>
+</head>
+
+<body onload="myFunction()">
+
+    <div class="nav navbar-fixed-top">
+        <img id="fs" src="https://www.care-international.org/assets/images/care-logo-white.png" alt="">
+
+        <ul class="list">
+            <li>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Home&nbsp;</span>
+                        <span class="icons fa fa-angle-down" id="angle"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Vision & Mission</a></li>
+                        <li><a href="#">Where We Work</a></li>
+                        <li><a href="#">Help & Support</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Global Presence</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>About
+                        </span>&nbsp;&nbsp;Us&nbsp;</span>
+                        <span class="icons fa fa-angle-down" id="angle"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">What We Are ?</a></li>
+                        <li><a href="#">Image Gallery</a></li>
+                        <li><a href="#">Video Galley</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Achivements&nbsp;
+                        <span class="icons fa fa-angle-down" id="angle"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Impact</a></li>
+                        <li><a href="#">Innovations</a></li>
+                        <li><a href="#">Touching Lives</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Awards</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact&nbsp;
+                        <span class="icons fa fa-angle-down" id="angle"></span></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Call Us</a></li>
+                        <li><a href="#">E-Mail</a></li>
+                        <li><a href="#">Social Media</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="info1">
+        <div class="suc">
+            <div class="suc-logo">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                <span><b>&nbsp;&nbsp;Payment&nbsp;Successful&nbsp;!!</b></span>
+            </div>
+            <p id="line">------------------------------------------------------------------------------------</p>
+            <div class="suc-des">
+                <p id="thank">Thank You For Your Contribution.</p>
+                <p id="trans"> Transaction ID : 1002959930548</p>
+                <p id="mal">An Email has been sent to <br> <span id="mail"></span></p>
+            </div>
+
+        </div>
+    </div>
+
+    <button class="ibutton"><a target="_blank" href="invoice.html"> Download Invoice</a></button>
+
+
+    <div class="footer" id="contact">
+
+        <div class="right">
+            <div class="f2">
+                <img id="fs" src="https://www.care-international.org/assets/images/care-logo-white.png" alt="">
+
+                <p>CARE India Charitable Trust </p> <br>
+                Donations to CARE India are tax exempted under section 80G.<br />
+                Data from FY 2020-21.
+            </div>
+        </div>
+
+        <div class="left">
+            <div class="f1">
+                <p>ABOUT</p>
+
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+
+            <div class="f1">
+                <p>HELP</p>
+
+                <ul>
+                    <li><a href="#">Payment</a></li>
+                    <li><a href="#">Bookings</a></li>
+                    <li><a href="#">Refunds</a></li>
+                    <li><a href="#">Cancellation</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="f1">
+                <p>POLICY</p>
+
+                <ul>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Terms Of Use</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+
+            <div class="f1">
+                <p>SOCIAL</p>
+
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="copy">
+        <p> Copyright &copy; 2021 CARE India All Rights Reserved</p>
+    </div>
+
+
+</body>
+
+</html>

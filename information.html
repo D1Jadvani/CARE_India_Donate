@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <title>Information Detail</title>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .nav {
+            width: 100%;
+            height: 9rem;
+            background-color: orange;
+            color: white;
+            display: flex;
+            box-shadow: 0 .5rem .5rem rgb(117, 33, 0);
+        }
+
+        #fs {
+            margin-top: 1%;
+            margin-left: 1%;
+            margin-bottom: 1%;
+            width: 200px;
+        }
+
+        .list {
+            margin-left: 25%;
+            display: flex;
+            list-style: none;
+        }
+
+        .list li {
+            margin-left: 15%;
+            margin-top: 7%;
+        }
+
+        .list li a {
+            display: flex;
+            font-size: 2rem;
+            font-weight: bold;
+            color: rgb(177, 33, 0);
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .list li a:hover {
+            color: rgb(70, 2, 0);
+        }
+
+        .list li ul {
+            background-color: white;
+            color: rgb(133, 35, 0);
+        }
+
+        .list li ul li {
+            padding-right: 80px;
+        }
+
+        #angle {
+            margin-top: 5%;
+        }
+
+        .info1 {
+            height: 800px;
+            width: 1000px;
+            font-size: 150%;
+            display: flex;
+            margin-left: 130px;
+            margin-top: 15rem;
+            border: 5px solid rgb(150, 53, 9);
+            box-shadow: 0rem .5rem 1rem orange;
+            border-radius: 22px;
+            background-color: rgb(252, 232, 196);
+            color: rgb(8, 22, 37);
+        }
+
+        .upimag {
+            width: 40%;
+        }
+
+        #upimage {
+            width: 70%;
+            height: 220px;
+            border: 2px solid rgb(252, 232, 196);
+            border-radius: 24px;
+            margin-top: 30px;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        .pay-box {
+            width: 60%;
+        }
+
+        .pay-box h3 {
+            margin-top: 20px;
+            margin-left: 150px;
+            font-weight: bold;
+            color: rgb(10, 92, 2);
+        }
+
+        .pay-box p {
+            background-color: rgb(8, 22, 33);
+            padding-left: 130px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: orange;
+            font-size: 28px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .pay-box label {
+            margin-top: 50px;
+            margin-left: 10rem;
+            font-size: 2.3rem;
+        }
+
+        .pay-box select option {
+            border-radius: 24px;
+        }
+
+        #fname {
+            border-radius: 10px;
+            outline: none;
+            border: 2px solid black;
+            border-bottom: 4px solid black;
+            margin-left: 20px;
+        }
+
+        #age {
+            border-radius: 10px;
+            outline: none;
+            border: 2px solid black;
+            border-bottom: 4px solid black;
+            margin-left: 35px;
+            width: 260px;
+        }
+
+        #email {
+            border-radius: 10px;
+            outline: none;
+            border: 2px solid black;
+            border-bottom: 4px solid black;
+            margin-left: 80px;
+        }
+
+        #mobile {
+            border-radius: 10px;
+            outline: none;
+            border: 2px solid black;
+            border-bottom: 4px solid black;
+            margin-left: 60px;
+            height: 35px;
+        }
+
+        #mobile1 {
+            border-radius: 10px;
+            outline: none;
+            border: 2px solid black;
+            border-bottom: 4px solid black;
+            width: 190px;
+        }
+
+        #amount {
+            border-radius: 10px;
+            outline: none;
+            border: 2px solid black;
+            border-bottom: 4px solid black;
+            margin-left: 20px;
+        }
+
+        #total {
+            font-weight: bolder;
+            color: orange;
+        }
+
+        #pay-method:focus {
+            background-color: rgb(8, 22, 33);
+            color: orange;
+            outline: none;
+        }
+
+        #pay-method {
+            color: rgb(8, 22, 37);
+            background-color: white;
+            margin-left: 2rem;
+            padding: 0rem 1rem;
+            font-size: 2.1rem;
+            border-radius: 10px;
+            border: 2px solid black;
+            border-bottom: 4px solid black;
+        }
+
+        .info-pay {
+            width: 21.6rem;
+            font-size: 2rem;
+            box-sizing: border-box;
+        }
+
+        .info-pay button {
+            background-color: rgb(8, 22, 33);
+            color: orange;
+            border-radius: 1rem;
+            width: 30rem;
+            height: 4rem;
+            margin-top: 100px;
+            margin-left: 140px;
+            outline: none;
+            border: none;
+            font-size: 1.8rem;
+            font-weight: bold;
+            transition: .3s;
+            border-radius: 20px;
+        }
+
+        .info-pay button:hover {
+            background-color: orange;
+            color: rgb(8, 22, 33);
+        }
+
+
+        .info-box {
+            width: 54rem;
+            height: 40rem;
+            border: .1rem solid rgb(8, 22, 33);
+            margin-top: 6rem;
+            margin-left: 6rem;
+            border-radius: 2rem;
+        }
+
+        .info-box p {
+            display: block;
+            padding-left: 4rem;
+            padding-top: 3rem;
+            font-size: 2.8rem;
+            color: black;
+        }
+
+        .info-logo {
+            width: 100%;
+            display: flex;
+            margin-top: 40px;
+            height: 6rem;
+            overflow: hidden;
+            background-color: rgb(8, 22, 33);
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .info-logo i {
+            font-size: 4rem;
+            margin-left: 4.3rem;
+            margin-top: 1rem;
+            color: grey;
+        }
+
+        .info-logo i:hover {
+            color: orange;
+        }
+
+        .info2 {
+            height: 800px;
+            width: 1000px;
+            font-size: 150%;
+            display: flex;
+            margin-left: 130px;
+            margin-top: 40px;
+            border: 5px solid rgb(150, 53, 9);
+            box-shadow: 0rem .5rem 1rem orange;
+            border-radius: 22px;
+            background-color: rgb(252, 232, 196);
+            color: rgb(8, 22, 37);
+        }
+
+        #pay-frame {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border-radius: 20px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            display: flex;
+            width: 100%;
+            height: 270px;
+            background-color: rgb(8, 22, 37);
+        }
+
+        .right {
+            display: flex;
+            width: 30%;
+            font-size: 15px;
+        }
+
+        .f2 {
+            margin: 30px 20px;
+            width: 400px;
+            height: 250px;
+            color: white;
+            line-height: 25px;
+            font-size: 16px;
+        }
+
+        .f2 p {
+            margin-top: 10px;
+            font-size: 20px;
+            text-shadow: 1px 1px 3px orange;
+            color: orange;
+            font-weight: bold;
+        }
+
+        .left {
+            width: 70%;
+            height: 300px;
+            display: flex;
+            padding: 0px 50px;
+            font-size: 17px;
+        }
+
+        .f1 {
+            margin: 30px 30px;
+            width: 150px;
+            height: 250px;
+        }
+
+        .f1 ul {
+            list-style: none;
+        }
+
+        .f1 ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .f1 ul li a:hover {
+            color: rgb(99, 205, 247);
+        }
+
+        .f1 p {
+            font-size: 18px;
+            color: orange;
+            font-weight: bold;
+            line-height: 30px;
+        }
+
+        .copy {
+            width: 100%;
+            height: 50px;
+            padding-top: 10px;
+            border-top: 1px solid grey;
+            font-size: 17px;
+            color: orange;
+            background-color: rgb(8, 22, 37);
+            text-align: center;
+            padding-left: 100px;
+        }
+
+        datalist option {
+            background-color: ivory;
+            font-size: 50px;
+        }
+    </style>
+
+
+    <script>
+        function validate() {
+            var fname = document.getElementById("fname").value;
+            var em = document.getElementById("email").value;
+            var num = document.getElementById("mobile1").value;
+            var amount = document.getElementById("amount").value;
+
+            var a = em.indexOf("@");
+            var d = em.indexOf("_");
+            var b = em.lastIndexOf(".");
+            var e = em.substr(0, 1);
+
+            var f = num.charAt(0);
+
+            var pat = /^[A-Za-z\s]{1,30}$/;
+            var resultt = fname.match(pat);
+
+            var amo = /^\d{2,20}$/; // \d means string should only contain digit
+            var resulttt = amount.match(amo);
+
+            var nn = num.substr(0, 1);
+            var patt = /^\d{10}$/;
+            var result = num.match(patt);
+
+            if (resultt == null) {
+                alert("Please Enter Alphabet In Name");
+            }
+
+            else if (em.length == 0) {
+                alert("Enter Email Address");
+                return false;
+            }
+
+            else if (a < 1 || b < a + 2 || b + 2 >= em.length) {
+                alert("Invalid Email ID");
+                return false;
+            }
+
+            else if (d == 0) {
+                alert("Email should not start with _");
+                return false;
+            }
+
+            else if (e >= 1 && e <= 9) {
+                alert("Email sould not start with number");
+                return false;
+            }
+
+            else if (num.length == 0) {
+                alert("Please Enter Your Mobile No.");
+                return false;
+            }
+
+            else if (result == null) {
+                alert("Mobile No. is always in DIGIT");
+                return false;
+            }
+
+            else if (num.length != 10) {
+                alert("Mobile number length isn't correct");
+                return false;
+            }
+
+            else if (nn >= 0 && nn <= 5) {
+                alert("Mobile No. Must start with 6,7,8,9 ");
+                return false;
+            }
+
+            else if (resulttt == null) {
+                alert("Please Enter Valid Amount !!(>100) ");
+                return false;
+            }
+
+            else if (amo == 0) {
+                alert("Plaese Enter Valid Amount !! (>100)")
+            }
+
+            else {
+                var x = document.getElementById("pay-method").selectedIndex;
+                
+                var name = document.getElementById("fname").value;
+                localStorage.setItem("name", name);
+
+                var amount = document.getElementById("amount").value;
+                localStorage.setItem("amount", amount);
+
+                var email = document.getElementById("email").value;
+                localStorage.setItem("email", email);
+
+                var mobile = document.getElementById("mobile1").value;
+                localStorage.setItem("mobile", mobile);
+
+                if (x == "0") {
+                    window.open("debit.html");
+                    return false;
+                }
+
+                else if (x == "1") {
+                    window.open('credit.html');
+                    return false;
+                }
+
+                else if (x == "2") {
+                    window.open('upi.html');
+                    return false;
+                }
+            }
+        }
+
+    </script>
+</head>
+
+
+<body>
+    <div class="nav navbar-fixed-top">
+        <img id="fs" src="https://www.care-international.org/assets/images/care-logo-white.png" alt="">
+
+        <ul class="list">
+            <li>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Home&nbsp;</span>
+                        <span class="icons fa fa-angle-down" id="angle"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Vision & Mission</a></li>
+                        <li><a href="#">Where We Work</a></li>
+                        <li><a href="#">Help & Support</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Global Presence</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>About
+                        </span>&nbsp;&nbsp;Us&nbsp;</span>
+                        <span class="icons fa fa-angle-down" id="angle"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">What We Are ?</a></li>
+                        <li><a href="#">Image Gallery</a></li>
+                        <li><a href="#">Video Galley</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Achivements&nbsp;
+                        <span class="icons fa fa-angle-down" id="angle"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Impact</a></li>
+                        <li><a href="#">Innovations</a></li>
+                        <li><a href="#">Touching Lives</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Awards</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact&nbsp;
+                        <span class="icons fa fa-angle-down" id="angle"></span></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Call Us</a></li>
+                        <li><a href="#">E-Mail</a></li>
+                        <li><a href="#">Social Media</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="info1">
+        <div class="pay-box">
+            <h3 id="temp">" Donate & Care India ... "</h3>
+            <label>Donor's Name </label>
+            <input type="text" id="fname" placeholder="Enter Your Name" />
+
+            <br /><label>Date Of Birth </label>
+            <input type="date" id="age" />
+
+            <br /><label>Email I'd </label>
+            <input type="email" id="email" placeholder="abc@gmail.com" />
+
+            <br />
+            <label>Mobile No. </label>
+            <select id="mobile">
+                <option>+91</option>
+            </select>
+            <input type="text" id="mobile1" placeholder="9876543210" />
+
+            <br /><label>Enter Amount </label>
+            <input type="text" id="amount" placeholder="500" />
+
+            <br />
+
+            <label>Payment Method :</label>
+
+            <select id="pay-method" required>
+                <option value="debit">Debit Card</option>
+                <option value="credit">Credit Card</option>
+                <option value="upi">UPI</option>
+            </select>
+            <br>
+            <div class="info-pay">
+                <button onclick="validate()">Proceed To Pay</button>
+            </div>
+            <br>
+        </div>
+        <div class="upimag">
+            <img id="upimage" src="https://www.businessinsider.in/thumb.cms?msid=73294218&width=1200&height=900" alt="">
+            <img id="upimage"
+                src="https://i0.wp.com/ztn.co.zw/wp-content/uploads/2020/10/hands-exchanging-money-1.jpg?fit=600%2C338&ssl=1"
+                alt="">
+            <img id="upimage"
+                src="https://m.economictimes.com/thumb/msid-83502809,width-1200,height-900,resizemode-4,imgsize-353228/blood-donation_istock.jpg"
+                alt="">
+        </div>
+    </div>
+
+
+    <div class="footer" id="contact">
+
+        <div class="right">
+            <div class="f2">
+                <img id="fs" src="https://www.care-international.org/assets/images/care-logo-white.png" alt="">
+
+                <p>CARE India Charitable Trust </p> <br>
+                Donations to CARE India are tax exempted under section 80G.<br />
+                Data from FY 2020-21.
+            </div>
+        </div>
+
+        <div class="left">
+            <div class="f1">
+                <p>ABOUT</p>
+
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+
+            <div class="f1">
+                <p>HELP</p>
+
+                <ul>
+                    <li><a href="#">Payment</a></li>
+                    <li><a href="#">Bookings</a></li>
+                    <li><a href="#">Refunds</a></li>
+                    <li><a href="#">Cancellation</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="f1">
+                <p>POLICY</p>
+
+                <ul>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Terms Of Use</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+
+            <div class="f1">
+                <p>SOCIAL</p>
+
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="copy">
+        <p> Copyright &copy; 2021 CARE India All Rights Reserved</p>
+    </div>
+
+</body>
+
+</html>

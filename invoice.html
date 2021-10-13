@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+
+    <style>
+        .info1 {
+            height: 480px;
+            width: 800px;
+            margin-left: 200px;
+            margin-top: 35px;
+            border: 5px solid rgb(150, 53, 9);
+            box-shadow: 0rem .5rem 1rem orange;
+            border-radius: 22px;
+            background-color: rgb(252, 232, 196);
+            color: rgb(8, 22, 37);
+            font-size: 40px;
+        }
+
+        .t-heading {
+            display: flex;
+            width: 100%;
+            height: 80px;
+            background-color: orange;
+            border-bottom: 2px solid orange;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+
+        .t-logo img {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 150px;
+            height: 60px;
+        }
+
+        .e-tick {
+            width: 30%;
+            font-size: 30px;
+            color: rgb(150, 53, 9);
+            font-weight: bold;
+            margin-left: 150px;
+            margin-top: -10px;
+        }
+
+        .t-id {
+            width: 30%;
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(150, 53, 9);
+            margin-left: 60px;
+        }
+
+        #tid {
+            margin-top: -10px;
+            margin-left: 20px;
+            font-size: 22px;
+            color: rgb(8, 22, 37);
+        }
+
+        #dat {
+            margin-left: 500px;
+            font-size: 25px;
+        }
+
+        .add {
+            margin-left: 20px;
+            font-size: 25px;
+        }
+
+        #transa {
+            margin-left: 100px;
+            padding-left: 100px;
+            margin-right: 100px;
+            border-radius: 16px;
+            font-weight: bold;
+            background-color: orange;
+            font-size: 25px;
+        }
+
+        #donat {
+            margin-left: 200px;
+            font-weight: bold;
+            font-size: 35px;
+        }
+        button{
+            background-color: rgb(8, 22, 37);
+            color: orange;
+            margin-left: 480px;
+            margin-top: 30px;
+            font-size: 20px;
+            padding: 10px 10px;
+            border-radius: 16px;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        function printSection(el) {
+            var getFullContent = document.body.innerHTML;
+            var printsection = document.getElementById(el).innerHTML;
+            document.body.innerHTML = printsection;
+            window.print();
+            document.body.innerHTML = getFullContent;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="info1" id="info">
+
+        <div class="t-heading">
+            <div class="t-logo">
+                <img src="https://cdn.shopify.com/s/files/1/0055/2645/4318/t/10/assets/pf-4595a496-8054-4fa3-ab97-18bd3da3bc05--1CAREHORIZONTALOrange.png?2054"
+                    alt="">
+            </div>
+            <div class="e-tick">
+                <p>E-Invoice</p>
+            </div>
+            <div class="t-id">
+                <p>Invoice No.
+                <p id="tid">27105</p>
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <p id="dat"><b>Date :</b>&nbsp;<span id="date">13-10-2021</span></p>
+        </div>
+
+        <div class="add">
+            <p><b>Name :</b>&nbsp;<span id="name">darshit jadvani</span></p>
+            <p><b>Email :</b>&nbsp;<span id="email">darshitjadvani@gmail.com</span></p>
+            <p><b>Mobile :</b>&nbsp;<span id="mobile">7572859407</span></p>
+        </div>
+
+        <div>
+            <p id="transa">Transaction ID :<span> 1002959930548</span></p>
+            <p id="donat">You Have Donated Rs. <span id="amount">500</span> /- .</p>
+
+        </div>
+    </div>
+
+    <button onclick="printSection('info')">Print Your Invoice</button>
+
+
+    <script>
+        var email = localStorage.getItem("email");
+        var mobile = localStorage.getItem("mobile");
+        var fname = localStorage.getItem("name");
+        var amount = localStorage.getItem("amount");
+
+        const d = new Date();
+        var month = d.getUTCMonth();
+
+        document.getElementById("email").innerHTML = email;
+
+        fname = fname.charAt(0).toUpperCase() + fname.slice(1);
+        document.getElementById("name").innerHTML = fname;
+        document.getElementById("amount").innerHTML = amount;
+        document.getElementById("mobile").innerHTML = "+91" + " " + mobile;
+        document.getElementById("date").innerHTML = d.getUTCDate();
+        document.getElementById("date").innerHTML += "-";
+        document.getElementById("date").innerHTML += month + 1;
+        document.getElementById("date").innerHTML += "-";
+        document.getElementById("date").innerHTML += d.getUTCFullYear();
+
+    </script>
+
+</body>
+
+</html>
